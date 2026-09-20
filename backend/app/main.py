@@ -19,10 +19,10 @@ app = FastAPI(title='Student AI API', version='1.0.0', lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://localhost:5173'],
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(auth.router, prefix='/auth')
@@ -32,3 +32,7 @@ app.include_router(predictions.router)
 @app.get("/")
 def read_root():
     return {"message": "Student AI API is running"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}

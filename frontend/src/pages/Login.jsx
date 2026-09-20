@@ -34,7 +34,13 @@ const Login = () => {
         navigate('/dashboard');
       }
     } catch (err) {
-      setError(err.response?.data?.detail || 'Authentication failed. Please try again.');
+      if (err.response?.data?.detail) {
+        setError(err.response.data.detail);
+      } else if (err.code === 'ERR_NETWORK' || !err.response) {
+        setError('Cannot connect to backend server. Please check backend URL and server status.');
+      } else {
+        setError('Authentication failed. Please check your credentials and try again.');
+      }
     } finally {
       setLoading(false);
     }
