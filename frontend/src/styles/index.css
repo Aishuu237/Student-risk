@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .risk-low {
+    @apply bg-gradient-to-r from-success/10 to-success/30 text-success border border-success/20;
+  }
+  .risk-medium {
+    @apply bg-gradient-to-r from-warning/10 to-warning/30 text-warning border border-warning/20;
+  }
+  .risk-high {
+    @apply bg-gradient-to-r from-danger/10 to-danger/30 text-danger border border-danger/20;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6;
+  }
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors focus:ring-4 focus:ring-primary/20 outline-none;
+  }
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.nav-gradient {
+  @apply bg-white/80 backdrop-blur-md border-b border-slate-200;
+}
